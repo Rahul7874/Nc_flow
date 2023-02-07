@@ -1,0 +1,39 @@
+.obs_form_main{
+    width: 1000px;
+    margin: auto;
+    height: 350px;
+    /* margin-top: 50px; */
+    display: flex;
+    gap: 80px;
+}
+.part1{
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+} 
+.sel{
+    width: 450px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    font-size: 16px;
+    /* border: 2px solid red; */
+}
+.inp{
+    width: 450px;
+    height: 140px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 10px;
+    font-size:medium;
+}
+.inpU{
+    width: 450px;
+    padding: 12px;
+    background-color: #f0f0f0;
+    font-size: 16px;
+    border: 1px solid grey;
+    border-radius: 10px;
+
+}
