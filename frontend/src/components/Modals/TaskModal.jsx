@@ -4,18 +4,22 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import './Modals.css'
-const TaskModal = ({
-  setModal
-}) => {
+  const TaskModal = ({setModal}) => {
+
   const dispatch = useDispatch();
 
-  const { singleData } = useSelector((state) => state.taskObjectReducer);
+  const { singleData } = useSelector((state) => state.taskReducer);
   const taskdata = { ...singleData };
+
+  const modelClose = () =>{
+    setModal(false);
+  
+  }
 
   // let navigate = useNavigate();
   return (
     <div id="myModal" className="modal">
-      {console.log(taskdata)}
+       {console.log(taskdata)}
       <div className="modal-content">
         <span
           className="close"
@@ -43,10 +47,10 @@ const TaskModal = ({
             </div>
             <div style={{ display: 'flex' }}>
               <Typography fontWeight={600} gutterBottom variant="h9" component="div">
-                Assigned Date:
+                Type :
               </Typography>
-              <Typography marginLeft={'1.3rem'} gutterBottom variant="h9" component="div">
-              {taskdata.data.AssignedDate.substring(0,10)}
+              <Typography marginLeft={'4.8rem'} gutterBottom variant="h9" component="div">
+              {taskdata.data.Type}
               </Typography>
             </div>
             <div style={{ display: 'flex' }}>
@@ -62,7 +66,7 @@ const TaskModal = ({
                 Created on:
               </Typography>
               <Typography marginLeft={'3rem'} gutterBottom variant="h9" component="div">
-              {taskdata.data.created.substring(0,10)}
+              {taskdata.data.created}
               </Typography>
             </div>
             <div style={{ display: 'flex' }}>
@@ -73,21 +77,62 @@ const TaskModal = ({
               {taskdata.data.Issue}
               </Typography>
             </div>
+            
           </div>
           <div style={{ borderLeft: '2px solid black', height: '100', marginLeft: '5rem' }}></div>
           <div style={{ marginLeft: '1.5rem' }}>
             <Typography fontWeight={600} gutterBottom variant="h9" component="div">
-              Comment:
+            Containment action 
             </Typography>
             <textarea
               style={{ width: "400px", minHeight: '100px',padding:'10px'}}
               type="text"
               placeholder="Comment"
             ></textarea>
-            <div style={{ display: "flex",justifyContent:'right'}}>
+            <Typography fontWeight={600} gutterBottom variant="h9" component="div">
+            All possible causes 
+            </Typography>
+            <textarea
+              style={{ width: "400px", minHeight: '100px',padding:'10px'}}
+              type="text"
+              placeholder="Comment"
+            ></textarea>
+            <Typography fontWeight={600} gutterBottom variant="h9" component="div">
+            Most likely root cause(s)
+            </Typography>
+            <textarea
+              style={{ width: "400px", minHeight: '100px',padding:'10px'}}
+              type="text"
+              placeholder="Comment"
+            ></textarea>
+            <Typography fontWeight={600} gutterBottom variant="h9" component="div">
+            Verified root cause 
+            </Typography>
+            <textarea
+              style={{ width: "400px", minHeight: '100px',padding:'10px'}}
+              type="text"
+              placeholder="Comment"
+            ></textarea>
+            <Typography fontWeight={600} gutterBottom variant="h9" component="div">
+            Issue categorization
+            </Typography>
+            <textarea
+              style={{ width: "400px", minHeight: '100px',padding:'10px'}}
+              type="text"
+              placeholder="Comment"
+            ></textarea>
+             <Typography fontWeight={600} gutterBottom variant="h9" component="div">
+             Long term solution identified 
+            </Typography>
+            <textarea
+              style={{ width: "400px", minHeight: '100px',padding:'10px'}}
+              type="text"
+              placeholder="Comment"
+             ></textarea>
+             <div style={{ display: "flex",justifyContent:'right'}}>
               <button className="bst-btn-delete">Reject
               </button>
-              <button className="bst-btn-update">Approve
+              <button className="bst-btn-update" onClick={modelClose} >Approve
               </button>
             </div>
 

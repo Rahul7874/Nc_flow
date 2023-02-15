@@ -21,11 +21,11 @@ const TaskSchema = mongoose.Schema({
     FinalapproverId: { type: String},
     Creator: { type: String},
     CreatorId: { type: String },
-    source: {
-        file: { type: Buffer },
-        filename: { type: String },
-        mimetype: { type: String }
-    },
+    // source: {
+    //     file: { type: Buffer },
+    //     filename: { type: String },
+    //     mimetype: { type: String }
+    // },
     created: {
         type: Date,
     },
@@ -34,11 +34,11 @@ const TaskSchema = mongoose.Schema({
     RootCause: { type: String},
     VerifiedCause: { type: String},
     IssueCatogorization: { type: String},
-    roattachments: {
-        file: { type: Buffer },
-        filename: { type: String },
-        mimetype: { type: String }
-    },
+    // roattachments: {
+    //     file: { type: Buffer },
+    //     filename: { type: String },
+    //     mimetype: { type: String }
+    // },
     SolutionIdentified: { type: String},
     CreatorStatus: { type: String},
     ROStatus: { type: String},

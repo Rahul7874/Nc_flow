@@ -23,6 +23,17 @@ export const PostTaskData = createAsyncThunk('posttaskdata/post',
     await axios.post('/api/posttask', { data })
   })
 
+  //update task
+  
+  export const Updatetask = createAsyncThunk(
+    "task/update",
+    async (data) => {
+      await axios.put("/api/tasku", { data });
+    }
+  );
+  
+
+
 // initialState
 
 const initialState = {

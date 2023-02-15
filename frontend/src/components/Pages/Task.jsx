@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import IconButton from '@mui/material/IconButton';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -18,31 +18,32 @@ import MailIcon from '@mui/icons-material/Mail';
 import { getAllTaskObject,getSingleTaskObject } from '../../services/TaskObjectServices'
 import TaskModal from "../Modals/TaskModal";
 import { Avatar } from "@mui/material";
+import { getAllTask ,getSingleTask} from "../../services/taskService";
 
 const Task = () => {
     const [page, setPage] = useState(1);
     const [modal1, setModal] = useState(false);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
     const { loading, data, skipCount } = useSelector(
-        (state) => state.taskObjectReducer
+        (state) => state.taskReducer
     );
 
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(getAllTaskObject(localStorage.getItem("username")));
+        dispatch(getAllTask(localStorage.getItem("username")));
     }, [page]);
 
     const handleChange = (event, value) => {
         setPage(value);
     };
     const openManageModal = (id) => {
-        dispatch(getSingleTaskObject(id));
+        dispatch(getSingleTask(id));
         setModal(true);
+        // Navigate("/resowner")
     };
 
     const handleProfileMenuOpen = (event) => {
@@ -212,12 +213,12 @@ const Task = () => {
                                 <tr>
                                     <td>{index+1}</td>
                                     <td style={{ color: 'blue', cursor: 'pointer' }} onClick={() => openManageModal(res._id)} >
-                                        {res.Id}
+                                        {res._id}
                                     </td>
                                     <td>{res.Creator}</td>
                                     <td>{res.Issue}</td>
                                     <td>{res.created.substring(0,10)}</td>
-                                     <td>{res.AssignedDate.substring(0,10)}</td>
+                                     {/* <td>{res.AssignedDate.substring(0,10)}</td> */}
                                 </tr>
                             </React.Fragment>
                         ))}

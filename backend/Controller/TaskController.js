@@ -51,3 +51,24 @@ export const PostTask = expressAsyncHandler(async (req, res) => {
       res.status(500).json({message:"internal server error",error})
   }
 })
+
+
+
+export const PatchROtask = expressAsyncHandler(async (req, res) => {
+  let {Id,Type,Problem,ProcessStage,PartNo,ReworkHrs,Issue,FailureType,RCA,Resolutionowner,ResolutionownerId,RCAValidator,RCAValidatorId,Finalapprover,FinalapproverId,Creator,CreatorId,created,ContainmentAction,Causes,RootCause,VerifiedCause,IssueCatogorization,SolutionIdentified,CreatorStatus,ROStatus,ValidatorStatus,ApproverStatus} = req.body.data
+  try {
+      if (id) {
+          const data = await Ncr.findByIdAndUpdate(id, {Id,Type,Problem,ProcessStage,PartNo,ReworkHrs,Issue,FailureType,RCA,Resolutionowner,ResolutionownerId,RCAValidator,RCAValidatorId,Finalapprover,FinalapproverId,Creator,CreatorId,created,ContainmentAction,Causes,RootCause,VerifiedCause,IssueCatogorization,SolutionIdentified,CreatorStatus,ROStatus,ValidatorStatus,ApproverStatus}, { new: true })
+
+          if (data) {
+              return res.status(201).json({ message: "successfully updated", data })
+          }
+          else {
+              return res.status(400).json({ message: "no data found to update" })
+          }
+      }
+  } catch (error) {
+      return res.status(500).json({ error })
+  }
+
+})

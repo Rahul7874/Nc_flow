@@ -181,12 +181,10 @@ const NcrTable = () => {
     }
 
 
-    const submitNcrfinal = (_id, Id, Type, Problem, ProcessStage, PartNo, ReworkHrs, Issue, FailureType, RCA, Resolutionowner, ResolutionownerId, RCAValidator, RCAValidatorId, Finalapprover, FinalapproverId, Creator, CreatorId, created, ContainmentAction, Causes, RootCause, VerifiedCause, IssueCatogorization, SolutionIdentified, CreatorStatus, ROStatus, ValidatorStatus, ApproverStatus) => {
+    const submitNcrfinal = ( Id, Type, Problem, ProcessStage, PartNo, ReworkHrs, Issue, FailureType, RCA, Resolutionowner, ResolutionownerId, RCAValidator, RCAValidatorId, Finalapprover, FinalapproverId, Creator, CreatorId, created, ContainmentAction, Causes, RootCause, VerifiedCause, IssueCatogorization, SolutionIdentified, CreatorStatus, ROStatus, ValidatorStatus, ApproverStatus) => {
 
         dispatch(PostTaskData({ Id, Type, Problem, ProcessStage, PartNo, ReworkHrs, Issue, FailureType, RCA, Resolutionowner, ResolutionownerId, RCAValidator, RCAValidatorId, Finalapprover, FinalapproverId, Creator, CreatorId, created, ContainmentAction, Causes, RootCause, VerifiedCause, IssueCatogorization, SolutionIdentified, CreatorStatus, ROStatus, ValidatorStatus, ApproverStatus }))
-
-
-        dispatch(PostTaskDataObject({ Id, Issue,Resolutionowner, ResolutionownerId, RCAValidator, RCAValidatorId, Finalapprover, FinalapproverId, Creator, CreatorId, created, AssignedDate, CompletionDate, CreatorStatus, ROStatus, ValidatorStatus, ApproverStatus, CreatorComment, ROComment, ValidatorComment, ApproverComment }))
+        // dispatch(PostTaskDataObject({ Id, Issue,Resolutionowner, ResolutionownerId, RCAValidator, RCAValidatorId, Finalapprover, FinalapproverId, Creator, CreatorId, created, AssignedDate, CompletionDate, CreatorStatus, ROStatus, ValidatorStatus, ApproverStatus, CreatorComment, ROComment, ValidatorComment, ApproverComment }))
         handleclosefinalAlert()
     }
     let value, value2;
@@ -519,6 +517,7 @@ const NcrTable = () => {
                                                 fontSize="inherit" sx={{ color: 'red' }} />
                                         </IconButton>
                                         <IconButton aria-label="delete" size="large" onClick={(e) => getIdforSubmit(item._id, item.Id, item.Type, item.Problem, item.ProcessStage, item.PartNo, item.ReworkHrs, item.Issue, item.FailureType, item.RCA, item.Resolutionowner, item.ResolutionownerId, item.RCAValidator, item.RCAValidatorId, item.Finalapprover, item.FinalapproverId, item.Creator, item.CreatorId, item.created)}>
+                                                                                                                                                                                                           {/* ContainmentAction, Causes, RootCause, VerifiedCause, IssueCatogorization, SolutionIdentified, CreatorStatus, ROStatus, ValidatorStatus, ApproverStatus */}
                                             <DoneAllIcon color="success" variant="contained" >Submit</DoneAllIcon>
                                         </IconButton>
 
@@ -537,7 +536,7 @@ const NcrTable = () => {
                     </DialogTitle>
                     <DialogActions>
                         <Button onClick={handleclosefinalAlert}>NO</Button>
-                        <Button onClick={(e) => submitNcrfinal(dataId, Id, Type, Problem, ProcessStage, PartNo, ReworkHrs, Issue, FailureType, RCA, Resolutionowner, ResolutionownerId, RCAValidator, RCAValidatorId, Finalapprover, FinalapproverId, Creator, CreatorId, created, ContainmentAction, Causes, RootCause, VerifiedCause, IssueCatogorization, SolutionIdentified, CreatorStatus, ROStatus, ValidatorStatus, ApproverStatus)} autoFocus>
+                        <Button onClick={(e) => submitNcrfinal( Id, Type, Problem, ProcessStage, PartNo, ReworkHrs, Issue, FailureType, RCA, Resolutionowner, ResolutionownerId, RCAValidator, RCAValidatorId, Finalapprover, FinalapproverId, Creator, CreatorId, created, ContainmentAction, Causes, RootCause, VerifiedCause, IssueCatogorization, SolutionIdentified, CreatorStatus, ROStatus, ValidatorStatus, ApproverStatus)} autoFocus>
                             Yes
                         </Button>
                     </DialogActions>
